@@ -88,8 +88,17 @@ function startGame() {
     //sound.play();
   
     const remainingTaps = sequence.length - humanSequence.length;
-  
+    
+    if (humanSequence[index] !== sequence[index]) {
+      resetGame('Oops! Game over, you pressed the wrong tile');
+      return;
+    }
+
     if (humanSequence.length === sequence.length) {
+      if (humanSequence.length === 20) {
+        resetGame('Congrats! You completed all the levels');
+        return
+      }
       humanSequence = [];
       info.textContent = 'Success! Keep going!';
       setTimeout(() => {
