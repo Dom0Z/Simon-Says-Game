@@ -13,6 +13,21 @@ function humanTurn(level) {
   tileContainer.classList.remove('unclickable');
   info.textContent = `Your turn: ${level} Tap${level > 1 ? 's' : ''}`;
 }
+
+
+// reset game
+function resetGame(text) {
+  alert(text);
+  sequence = [];
+  humanSequence = [];
+  level = 0;
+  startButton.classList.remove('hidden');
+  heading.textContent = 'Simon Game';
+  info.classList.add('hidden');
+  tileContainer.classList.add('unclickable');
+}
+
+
 // Helper function to find the next random tile in the sequence
 function nextStep() {
     const tiles = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
